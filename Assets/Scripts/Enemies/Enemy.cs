@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent (typeof (DeathEvent))]
 public class Enemy : MonoBehaviour
 {
     [SerializeField]
@@ -21,8 +22,6 @@ public class Enemy : MonoBehaviour
     {
         enemyAttributes = gameObject.AddComponent<AttributeSet>();
         InitializeAttributes();
-
-        gameObject.AddComponent<DeathEvent>();
     }
 
     private void InitializeAttributes()

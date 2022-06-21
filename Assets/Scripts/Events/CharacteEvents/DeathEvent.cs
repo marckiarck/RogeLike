@@ -6,17 +6,25 @@ public class DeathEvent : ConditionalEvents
 {
     private AttributeSet gameObjectAttributes;
 
+    [SerializeField]
+    private AudioClip deathSound;
+    private AudioSource audioSource;
     void Start()
     {
         //Searches gameObjectAttributes on Start beacuse the attribute set may be created in an Awake
         gameObjectAttributes = gameObject.GetComponent<AttributeSet>();
+        audioSource = gameObject.GetComponent<AudioSource>();
         
     }
 
     protected override void UpdateCollisionEvent()
     {
+        if (audioSource.isPlaying == false)
+        {
+            audioSource.PlayOneShot(deathSound);
+        }
 
-        Destroy(gameObject);
+        Destroy(gameObject, deathSound.length);
         eventActivated = false;
     }
 
