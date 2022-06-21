@@ -55,7 +55,6 @@ public class PlayerController : MonoBehaviour
         Move();
         AproachShoot();
 
-        //print(playerAttributes.GetAttribute(AttributeNames.HEALTH));
     }
 
     private void AproachShoot()

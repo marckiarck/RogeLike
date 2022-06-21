@@ -8,10 +8,15 @@ public class ShootEvent : EventInterface
     [SerializeField]
     private GameObject bulletPrefab;
 
+    [SerializeField]
+    private AudioClip shootSound;
+
     private AttributeSet gameObjectAttributes;
 
     private List<GameObject> spawnedBullets;
     private List<GameObject> despawnedBullets;
+
+    private AudioSource audioSource;
 
     private Vector2 shootDirection;
 
@@ -21,6 +26,7 @@ public class ShootEvent : EventInterface
     {
         spawnedBullets = new List<GameObject>();
         despawnedBullets = new List<GameObject>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     public void Start()
@@ -61,7 +67,9 @@ public class ShootEvent : EventInterface
             spawnedBullets.Add(spawnedBullet);
         }
 
-        print("Shooting");
+        audioSource.clip = shootSound;
+        audioSource.Play();
+
         eventActivated = false;
     }
 }

@@ -25,11 +25,6 @@ public class Enemy : MonoBehaviour
         gameObject.AddComponent<DeathEvent>();
     }
 
-    public void Update()
-    {
-        print(enemyAttributes.GetAttribute(AttributeNames.HEALTH));
-    }
-
     private void InitializeAttributes()
     {
         Health = health;
