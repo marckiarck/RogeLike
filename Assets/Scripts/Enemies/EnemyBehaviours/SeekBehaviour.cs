@@ -8,7 +8,10 @@ public class SeekBehaviour : MoveBehaviour
     private GameObject objetive;
     protected override void ExecuteBehaviour()
     {
-        moveDirection = objetive.transform.position - gameObject.transform.position;
-        base.ExecuteBehaviour();
+        if(objetive != null)
+        {
+            moveDirection = objetive.transform.position - gameObject.transform.position;
+            base.ExecuteBehaviour();
+        }
     }
 }

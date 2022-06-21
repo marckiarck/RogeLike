@@ -7,6 +7,8 @@ public static class AttributeNames
     public static string HEALTH = "Health";
     public static string DAMAGE = "Damage";
     public static string SPEED = "Speed";
+    public static string SHOOT_COOLDOWN = "ShootCooldown";
+    public static string MAX_BULLETS = "MaxBullets";
 }
 
 public class AttributeSet : MonoBehaviour
