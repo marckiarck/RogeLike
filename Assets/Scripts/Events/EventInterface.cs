@@ -6,12 +6,12 @@ public class EventInterface : MonoBehaviour
 {
     protected bool eventActivated = false;
 
-    public void StartCollisionEvent()
+    public void StartEvent()
     {
         eventActivated = true;
     }
 
-    public void Update()
+    public virtual void Update()
     {
         if (eventActivated)
         {
