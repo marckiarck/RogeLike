@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class HelthReduceCollisionEvent : CollisionEvent
 {
-    protected override void UpdateCollisionEvent()
+    protected override void UpdateCollision()
     {
         AttributeSet collidedAttributes = CollidedObject.GetComponent<AttributeSet>();
         AttributeSet collidingAttributes = CollidingObject.GetComponent<AttributeSet>();

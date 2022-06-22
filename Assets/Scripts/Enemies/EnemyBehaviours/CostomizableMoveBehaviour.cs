@@ -13,4 +13,14 @@ public class CostomizableMoveBehaviour : MoveBehaviour
     {
         return moveDirection;
     }
+
+    public void SetMoveSpeed(float speed)
+    {
+        moveSpeed = speed;
+    }
+
+    public float GetMoveSpeed()
+    {
+        return moveSpeed;
+    }
 }

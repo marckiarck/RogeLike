@@ -15,8 +15,9 @@ GameObject:
   - component: {fileID: 1477897731063659461}
   - component: {fileID: 3600201183562427579}
   - component: {fileID: 825812721778115096}
-  - component: {fileID: 238345588176409087}
   - component: {fileID: 1213102798351857892}
+  - component: {fileID: 3731733063356385409}
+  - component: {fileID: 1906218354629661628}
   m_Layer: 0
   m_Name: Bullet
   m_TagString: Untagged
@@ -167,19 +168,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tagFilter: Enemy
---- !u!114 &238345588176409087
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 242020099186142726}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d7c9cf2b870e3234b862b497af21fd56, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  destructionSound: {fileID: 8300000, guid: 1c31d4e41b7594c4cba9b624e1862ec0, type: 3}
+  collisionSound: {fileID: 8300000, guid: 1c31d4e41b7594c4cba9b624e1862ec0, type: 3}
 --- !u!82 &1213102798351857892
 AudioSource:
   m_ObjectHideFlags: 0
@@ -276,3 +265,28 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &3731733063356385409
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 242020099186142726}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d5e5ee880db2574e82934a2a28f4a49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  destructionSound: {fileID: 8300000, guid: 1c31d4e41b7594c4cba9b624e1862ec0, type: 3}
+--- !u!114 &1906218354629661628
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 242020099186142726}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ec621e2be4d7e249a3b15f16f887d28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
