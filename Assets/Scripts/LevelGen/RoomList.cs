@@ -58,7 +58,7 @@ public class RoomList : ScriptableObject
 public class Room
 {
     public int size;
-    int layers;
+    public int layers;
     public TileBase[] roomTiles; 
 
     public Room(int size, int t) // t = tilemaps num
