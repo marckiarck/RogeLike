@@ -462,7 +462,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1635020449}
   roomData: {fileID: 11400000, guid: 9f33bde0275761a4699d27956726f730, type: 2}
-  mapAux: []
+  mapAux:
+  - tile: {fileID: 11400000, guid: b77be35b7ccceb94fa19f0d9bb19c942, type: 2}
+    prefab: {fileID: 3192178460834320317, guid: ba49344c84e103e4e9fe6fe6b71655e5, type: 3}
+  - tile: {fileID: 11400000, guid: e30fb21e36c7dd54985542c6dfa7992b, type: 2}
+    prefab: {fileID: 1604810853624733485, guid: 94feae343ffb7cb489a9ce895b032fa7, type: 3}
+  - tile: {fileID: 11400000, guid: 4e85db269c9becb44bfdbc944740f028, type: 2}
+    prefab: {fileID: 5781117431380565100, guid: c507d69d21b61b04f8d0575f096cd10d, type: 3}
 --- !u!4 &1448034926
 Transform:
   m_ObjectHideFlags: 0
