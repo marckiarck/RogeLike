@@ -8,6 +8,7 @@ public class GameManager : TemporalSingleton<GameManager>
     [SerializeField]
     private GameObject playerPrefab;
     private GameObject playerReferece;
+    private AttributeSet playerAttributes;
 
     public static float score = 0f;
 
@@ -20,6 +21,20 @@ public class GameManager : TemporalSingleton<GameManager>
         playerReferece = Instantiate(playerPrefab);
         playerReferece.transform.position = Vector2.zero;
 
+        playerAttributes = playerReferece.GetComponent<AttributeSet>();
+
         score = 0f;
+    }
+
+    public float GetPlayerLife()
+    {
+        if (playerAttributes)
+        {
+            return playerAttributes.GetAttribute(AttributeNames.HEALTH);
+        }
+        else
+        {
+            return 0f;
+        }
     }
 }
