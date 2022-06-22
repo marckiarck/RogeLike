@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 4223874281234564611}
   - component: {fileID: 4223874281234564610}
   - component: {fileID: 8084204049155556287}
+  - component: {fileID: 8971305386875213374}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -153,6 +154,7 @@ MonoBehaviour:
   damage: 1
   shootCooldown: 0.5
   maxBullets: 5
+  bulletSpeed: 0
 --- !u!114 &4223874281234564608
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -288,3 +290,15 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &8971305386875213374
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4223874281234564618}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ec621e2be4d7e249a3b15f16f887d28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

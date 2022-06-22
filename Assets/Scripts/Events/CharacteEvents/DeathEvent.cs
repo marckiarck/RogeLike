@@ -17,7 +17,7 @@ public class DeathEvent : ConditionalEvents
         
     }
 
-    protected override void UpdateCollisionEvent()
+    protected override void UpdateCollision()
     {
         if (audioSource.isPlaying == false)
         {

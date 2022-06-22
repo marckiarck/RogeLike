@@ -5,7 +5,7 @@ using UnityEngine;
 public class MoveBehaviour : EnemyBehaviourInterface
 {
     [SerializeField]
-    private float moveSpeed = 0f;
+    protected float moveSpeed = 0f;
     protected Vector2 moveDirection = Vector2.right;
 
     protected override void ExecuteBehaviour()
