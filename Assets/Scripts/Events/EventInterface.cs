@@ -15,9 +15,9 @@ public class EventInterface : MonoBehaviour
     {
         if (eventActivated)
         {
-            UpdateCollision();
+            UpdateEvent();
         }
     }
 
-    protected virtual void UpdateCollision() {}
+    protected virtual void UpdateEvent() {}
 }

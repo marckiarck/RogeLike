@@ -21,10 +21,10 @@ public class BulletColisionEvent : HelthReduceCollisionEvent
     private void Start()
     {
         AttributeSet gameObjectAttributes = GetComponent<AttributeSet>();
-        gameObjectAttributes.SetAttributeSafe(AttributeNames.DAMAGE, shooterEvent.GameObjectAttributes.GetAttribute(AttributeNames.DAMAGE));
+        gameObjectAttributes.SetAttribute(AttributeNames.DAMAGE, shooterEvent.GameObjectAttributes.GetAttribute(AttributeNames.DAMAGE));
     }
 
-    protected override void UpdateCollision()
+    protected override void UpdateEvent()
     {
 
         shooterEvent.DespawnBullet(gameObject);
@@ -35,6 +35,6 @@ public class BulletColisionEvent : HelthReduceCollisionEvent
             audioSource.Play();
         }
 
-        base.UpdateCollision();
+        base.UpdateEvent();
     }
 }

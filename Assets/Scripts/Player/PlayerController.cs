@@ -44,9 +44,9 @@ public class PlayerController : MonoBehaviour
 
     private void InitializeAttributes()
     {
-        Health = health;
-        Speed = speed;
-        Damage = damage;
+        playerAttributes.SetAttribute(AttributeNames.HEALTH, health);
+        playerAttributes.SetAttribute(AttributeNames.SPEED, speed);
+        playerAttributes.SetAttribute(AttributeNames.DAMAGE, damage);
         playerAttributes.SetAttribute(AttributeNames.SHOOT_COOLDOWN, shootCooldown);
         playerAttributes.SetAttribute(AttributeNames.MAX_BULLETS, maxBullets);
         playerAttributes.SetAttribute(AttributeNames.BULLET_SPEED, bulletSpeed);
@@ -58,8 +58,6 @@ public class PlayerController : MonoBehaviour
         UpdateInput();
         Move();
         AproachShoot();
-
-        print(playerAttributes.GetAttribute(AttributeNames.HEALTH));
     }
 
     private void AproachShoot()

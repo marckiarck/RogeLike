@@ -154,7 +154,7 @@ MonoBehaviour:
   damage: 1
   shootCooldown: 0.5
   maxBullets: 5
-  bulletSpeed: 0
+  bulletSpeed: 15
 --- !u!114 &4223874281234564608
 MonoBehaviour:
   m_ObjectHideFlags: 0
