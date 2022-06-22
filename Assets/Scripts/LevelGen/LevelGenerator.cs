@@ -4,12 +4,7 @@ using UnityEngine;
 using UnityEngine.Tilemaps;
 
 
-[System.Serializable]
-public struct PrefabPair
-{
-    public TileBase tile;
-    public GameObject prefab;
-}
+
 
 public class LevelGenerator : MonoBehaviour
 {
@@ -339,10 +334,11 @@ public class LevelGenerator : MonoBehaviour
             switch (unit.roomType)
             {
                 case RoomType.exit:
-                         if (unit.exits.x == 1) InstantiateFromList(roomList.exit.typeL, unit);
-                    else if (unit.exits.y == 1) InstantiateFromList(roomList.exit.typeR, unit);
-                    else if (unit.exits.z == 1) InstantiateFromList(roomList.exit.typeU, unit);
-                    else if (unit.exits.w == 1) InstantiateFromList(roomList.exit.typeD, unit);
+                    InstantiateFromList(roomList.hall.type, unit);
+                    //     if (unit.exits.x == 1) InstantiateFromList(roomList.exit.typeL, unit);
+                    //else if (unit.exits.y == 1) InstantiateFromList(roomList.exit.typeR, unit);
+                    //else if (unit.exits.z == 1) InstantiateFromList(roomList.exit.typeU, unit);
+                    //else if (unit.exits.w == 1) InstantiateFromList(roomList.exit.typeD, unit);
                     break;
 
                 case RoomType.intersection:
@@ -353,10 +349,10 @@ public class LevelGenerator : MonoBehaviour
                     break;
 
                 case RoomType.start:
-                         if (unit.exits.x == 1) InstantiateFromList(roomList.entry.typeL, unit);
-                    else if (unit.exits.y == 1) InstantiateFromList(roomList.entry.typeR, unit);
-                    else if (unit.exits.z == 1) InstantiateFromList(roomList.entry.typeU, unit);
-                    else if (unit.exits.w == 1) InstantiateFromList(roomList.entry.typeD, unit);
+                        /* if (unit.exits.x == 1) */InstantiateFromList(roomList.hall.type, unit);
+                    //else if (unit.exits.y == 1) InstantiateFromList(roomList.hall.typeR, unit);
+                    //else if (unit.exits.z == 1) InstantiateFromList(roomList.hall.typeU, unit);
+                    //else if (unit.exits.w == 1) InstantiateFromList(roomList.hall.typeD, unit);
                     break;
 
                 case RoomType.path:

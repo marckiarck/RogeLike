@@ -3,6 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
+
+[System.Serializable]
+public struct PrefabPair
+{
+    public TileBase tile;
+    public GameObject prefab;
+}
+
 [System.Serializable]
 public class RoomList : ScriptableObject
 {
@@ -10,8 +18,8 @@ public class RoomList : ScriptableObject
 
     public Corridor corridor = new Corridor();
     public Intersection intersection = new Intersection();
-    public Entry entry = new Entry();
-    public Exit exit = new Exit();
+    public Hall hall = new Hall();
+    //public Exit exit = new Exit();
 
 
     //He decidido hacerlo así en vez de hacer listas de listas para que sea más facil de enterder y evitar equivocaciones al refernciar los tipos de habitación
@@ -36,22 +44,22 @@ public class RoomList : ScriptableObject
     }
 
     [System.Serializable]
-    public class Entry
+    public class Hall
     {
-        public List<Room> typeL = new List<Room>();
-        public List<Room> typeR = new List<Room>();
-        public List<Room> typeU = new List<Room>();
-        public List<Room> typeD = new List<Room>();
+        public List<Room> type = new List<Room>();
+        //public List<Room> typeR = new List<Room>();
+        //public List<Room> typeU = new List<Room>();
+        //public List<Room> typeD = new List<Room>();
     }
 
-    [System.Serializable]
-    public class Exit
-    {
-        public List<Room> typeL = new List<Room>();
-        public List<Room> typeR = new List<Room>();
-        public List<Room> typeU = new List<Room>();
-        public List<Room> typeD = new List<Room>();
-    }
+    //[System.Serializable]
+    //public class Exit
+    //{
+    //    public List<Room> typeL = new List<Room>();
+    //    public List<Room> typeR = new List<Room>();
+    //    public List<Room> typeU = new List<Room>();
+    //    public List<Room> typeD = new List<Room>();
+    //}
 }
 
 [System.Serializable]

@@ -114,10 +114,10 @@ public class RoomEditor : EditorWindow
     int subtype2;
     int subtype3;
 
-    string[] toolbarTypes = { "Corridor", "Intersection", "Entry", "Exit" };
+    string[] toolbarTypes = { "Corridor", "Intersection", "Hall" };
     string[] corridorTypes = { "Left-Right", "Up-Down", "Left-Up", "Left-Down","Right-Up","Right-Down" };
     string[] interTypes = { "Left-Right-Up", "Left-Right-Down", "Left-Up-Down", "Right-Up-Down" };
-    string[] entryTypes = { "Left", "Right", "Up", "Down" };
+    string[] hallTypes = { "Solo hay uno" };
 
     GUIStyle titleStyle = new GUIStyle();
     
@@ -251,50 +251,50 @@ public class RoomEditor : EditorWindow
                     break;
 
                 case 2:
-                    subtype2 = GUILayout.Toolbar(subtype2, entryTypes);
+                    subtype2 = GUILayout.Toolbar(subtype2, hallTypes);
                     switch (subtype2)
                     {
                         case 0:
-                            currentList = roomList.entry.typeL;
-                            editorGizmo.ShowGizmos(true, false, false, false);
+                            currentList = roomList.hall.type;
+                            editorGizmo.ShowGizmos(true, true, true, true);
                             break;
-                        case 1:
-                            currentList = roomList.entry.typeR;
-                            editorGizmo.ShowGizmos(false, true, false, false);
-                            break;
-                        case 2:
-                            currentList = roomList.entry.typeU;
-                            editorGizmo.ShowGizmos(false, false, true, false);
-                            break;
-                        case 3:
-                            currentList = roomList.entry.typeD;
-                            editorGizmo.ShowGizmos(false, false, false, true);
-                            break;
+                        //case 1:
+                        //    currentList = roomList.entry.typeR;
+                        //    editorGizmo.ShowGizmos(false, true, false, false);
+                        //    break;
+                        //case 2:
+                        //    currentList = roomList.entry.typeU;
+                        //    editorGizmo.ShowGizmos(false, false, true, false);
+                        //    break;
+                        //case 3:
+                        //    currentList = roomList.entry.typeD;
+                        //    editorGizmo.ShowGizmos(false, false, false, true);
+                        //    break;
                     }
                     break;
 
-                case 3:
-                    subtype3 = GUILayout.Toolbar(subtype3, entryTypes);
-                    switch (subtype3)
-                    {
-                        case 0:
-                            currentList = roomList.exit.typeL;
-                            editorGizmo.ShowGizmos(true, false, false, false);
-                            break;
-                        case 1:
-                            currentList = roomList.exit.typeR;
-                            editorGizmo.ShowGizmos(false, true, false, false);
-                            break;
-                        case 2:
-                            currentList = roomList.exit.typeU;
-                            editorGizmo.ShowGizmos(false, false, true, false);
-                            break;
-                        case 3:
-                            currentList = roomList.exit.typeD;
-                            editorGizmo.ShowGizmos(false, false, false, true);
-                            break;
-                    }
-                    break;
+                //case 3:
+                //    subtype3 = GUILayout.Toolbar(subtype3, hallTypes);
+                //    switch (subtype3)
+                //    {
+                //        case 0:
+                //            currentList = roomList.exit.typeL;
+                //            editorGizmo.ShowGizmos(true, false, false, false);
+                //            break;
+                //        case 1:
+                //            currentList = roomList.exit.typeR;
+                //            editorGizmo.ShowGizmos(false, true, false, false);
+                //            break;
+                //        case 2:
+                //            currentList = roomList.exit.typeU;
+                //            editorGizmo.ShowGizmos(false, false, true, false);
+                //            break;
+                //        case 3:
+                //            currentList = roomList.exit.typeD;
+                //            editorGizmo.ShowGizmos(false, false, false, true);
+                //            break;
+                //    }
+                //    break;
             }
             GUILayout.Space(10);
 
