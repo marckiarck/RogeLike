@@ -19,7 +19,7 @@ public class GameManager : TemporalSingleton<GameManager>
         base.Awake();
 
         playerReferece = Instantiate(playerPrefab);
-        playerReferece.transform.position = Vector2.zero;
+        playerReferece.transform.position = new Vector2(12.5f, 12.5f);
 
         playerAttributes = playerReferece.GetComponent<AttributeSet>();
 

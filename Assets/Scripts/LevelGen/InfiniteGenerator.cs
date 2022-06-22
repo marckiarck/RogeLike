@@ -93,6 +93,8 @@ public class InfiniteGenerator : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        player = GameManager.Instance.PlayerReferece.transform;
+
         tilemap = FindObjectsOfType<Tilemap>();
 
         RoomNode node = new RoomNode(0, 0, roomData.size);
@@ -117,6 +119,11 @@ public class InfiniteGenerator : MonoBehaviour
     // Comprueba si el player ha cambiado de habitación y genera nuevas habitaciones si se requieren
     void CheckPlayerPos()
     {
+        if (player == null)
+        {
+            return;
+        }
+
         float x = player.position.x / roomData.size; if (x < 0) x -= 1;
         float y = player.position.y / roomData.size; if (y < 0) y -= 1;
         Vector2Int playerRoomPos = new Vector2Int((int)x, (int)y);
