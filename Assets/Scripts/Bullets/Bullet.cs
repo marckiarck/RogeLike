@@ -21,14 +21,12 @@ public class Bullet : MonoBehaviour
     {
         enemyAttributes = gameObject.AddComponent<AttributeSet>();
         InitializeAttributes();
-
-        gameObject.AddComponent<DeathEvent>();
     }
 
     private void InitializeAttributes()
     {
-        Health = health;
-        Speed = speed;
-        Damage = damage;
+        enemyAttributes.SetAttribute(AttributeNames.HEALTH, health);
+        enemyAttributes.SetAttribute(AttributeNames.SPEED, speed);
+        enemyAttributes.SetAttribute(AttributeNames.DAMAGE, damage);
     }
 }

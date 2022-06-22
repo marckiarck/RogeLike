@@ -24,6 +24,15 @@ public class Enemy : MonoBehaviour
         InitializeAttributes();
     }
 
+    private void Start()
+    {
+        SeekBehaviour seekBehaviour = gameObject.GetComponent<SeekBehaviour>();
+        if (seekBehaviour)
+        {
+            seekBehaviour.Objetive = GameManager.Instance.PlayerReferece;
+        }
+    }
+
     protected virtual void InitializeAttributes()
     {
         if (enemyAttributes == null)
@@ -31,8 +40,8 @@ public class Enemy : MonoBehaviour
             enemyAttributes = gameObject.GetComponent<AttributeSet>();
         }
 
-        Health = health;
-        Speed = speed;
-        Damage = damage;
+        enemyAttributes.SetAttribute(AttributeNames.HEALTH, health);
+        enemyAttributes.SetAttribute(AttributeNames.SPEED, speed);
+        enemyAttributes.SetAttribute(AttributeNames.DAMAGE, damage);
     }
 }

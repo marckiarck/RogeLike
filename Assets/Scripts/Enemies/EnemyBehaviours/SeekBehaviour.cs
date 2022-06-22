@@ -6,6 +6,9 @@ public class SeekBehaviour : MoveBehaviour
 {
     [SerializeField]
     protected GameObject objetive;
+
+    public GameObject Objetive { get => objetive; set => objetive = value; }
+
     protected override void ExecuteBehaviour()
     {
         if(objetive != null)

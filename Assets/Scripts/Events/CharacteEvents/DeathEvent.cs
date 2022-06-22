@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DeathEvent : ConditionalEvents
 {
-    private AttributeSet gameObjectAttributes;
+    protected AttributeSet gameObjectAttributes;
 
     [SerializeField]
     private AudioClip deathSound;
@@ -17,7 +17,7 @@ public class DeathEvent : ConditionalEvents
         
     }
 
-    protected override void UpdateCollision()
+    protected override void UpdateEvent()
     {
         if (audioSource.isPlaying == false)
         {

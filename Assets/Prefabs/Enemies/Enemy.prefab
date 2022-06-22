@@ -15,12 +15,13 @@ GameObject:
   - component: {fileID: 3192178460834320312}
   - component: {fileID: 3192178460834320293}
   - component: {fileID: 3192178460834320294}
-  - component: {fileID: 6318667746223516130}
   - component: {fileID: 2958871067043399652}
   - component: {fileID: 4761499195222818754}
   - component: {fileID: 2618534377022262633}
   - component: {fileID: 8335482948412416536}
   - component: {fileID: 1987565658606372957}
+  - component: {fileID: 6061312382386887505}
+  - component: {fileID: 8085481539577966585}
   m_Layer: 7
   m_Name: Enemy
   m_TagString: Enemy
@@ -171,19 +172,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8c4fd3916bbc2742911f6b77df3590f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &6318667746223516130
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3192178460834320317}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 36f164be77791c147846acacee3d81b7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  deathSound: {fileID: 8300000, guid: d2d0a0b5680f30f4d9c4fe6541e078e0, type: 3}
 --- !u!82 &2958871067043399652
 AudioSource:
   m_ObjectHideFlags: 0
@@ -337,3 +325,28 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &6061312382386887505
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3192178460834320317}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36f164be77791c147846acacee3d81b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  deathSound: {fileID: 8300000, guid: d2d0a0b5680f30f4d9c4fe6541e078e0, type: 3}
+--- !u!114 &8085481539577966585
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3192178460834320317}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a63d635c32e5ac4e85df7c0519dc42e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

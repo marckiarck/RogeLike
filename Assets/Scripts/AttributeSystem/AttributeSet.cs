@@ -23,15 +23,6 @@ public class AttributeSet : MonoBehaviour
         {
             attributes = new Dictionary<string, float>();
         }
-
-        InitializeAttributes();
-    }
-
-    public void InitializeAttributes()
-    {
-        attributes[AttributeNames.HEALTH] = 5;
-        attributes[AttributeNames.DAMAGE] = 1;
-        attributes[AttributeNames.SPEED] = 2;
     }
 
     public float GetAttribute(string attributeName)

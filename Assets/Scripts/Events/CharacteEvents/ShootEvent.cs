@@ -46,7 +46,7 @@ public class ShootEvent : EventInterface
         }
     }
 
-    protected override void UpdateCollision()
+    protected override void UpdateEvent()
     {
         if (despawnedBullets.Count != 0)
         {

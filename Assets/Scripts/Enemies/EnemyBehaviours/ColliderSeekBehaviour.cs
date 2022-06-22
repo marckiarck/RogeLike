@@ -6,7 +6,7 @@ public class ColliderSeekBehaviour : SeekBehaviour
 {
     protected override void ExecuteBehaviour()
     {
-        if (ExecuteEnemyAvoidance())
+        if (objetive == null || ExecuteEnemyAvoidance())
         {
             return;
         }

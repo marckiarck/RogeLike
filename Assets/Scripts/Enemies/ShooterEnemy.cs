@@ -22,6 +22,7 @@ public class ShooterEnemy : Enemy
     void Update()
     {
         AproachShoot();
+
     }
 
     protected override void InitializeAttributes()
