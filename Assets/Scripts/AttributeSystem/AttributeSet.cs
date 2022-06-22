@@ -15,11 +15,15 @@ public static class AttributeNames
 public class AttributeSet : MonoBehaviour
 {
     [SerializeField]
-    private Dictionary<string, float> attributes;
+    private Dictionary<string, float> attributes = null;
 
     private void Awake()
     {
-        attributes = new Dictionary<string, float>();
+        if (attributes == null)
+        {
+            attributes = new Dictionary<string, float>();
+        }
+
         InitializeAttributes();
     }
 
@@ -41,11 +45,21 @@ public class AttributeSet : MonoBehaviour
 
     public void SetAttribute(string attributeName, float value)
     {
+        if (attributes == null)
+        {
+            attributes = new Dictionary<string, float>();
+        }
+
         attributes[attributeName] = value;
     }
 
     public void SetAttributeSafe(string attributeName, float value)
     {
+        if (attributes == null)
+        {
+            attributes = new Dictionary<string, float>();
+        }
+
         if (attributes.ContainsKey(attributeName))
         {
             attributes[attributeName] = value;

@@ -18,6 +18,12 @@ public class BulletColisionEvent : HelthReduceCollisionEvent
         audioSource = GetComponent<AudioSource>();
     }
 
+    private void Start()
+    {
+        AttributeSet gameObjectAttributes = GetComponent<AttributeSet>();
+        gameObjectAttributes.SetAttributeSafe(AttributeNames.DAMAGE, shooterEvent.GameObjectAttributes.GetAttribute(AttributeNames.DAMAGE));
+    }
+
     protected override void UpdateCollision()
     {
 

@@ -5,7 +5,7 @@ using UnityEngine;
 public class SeekBehaviour : MoveBehaviour
 {
     [SerializeField]
-    private GameObject objetive;
+    protected GameObject objetive;
     protected override void ExecuteBehaviour()
     {
         if(objetive != null)

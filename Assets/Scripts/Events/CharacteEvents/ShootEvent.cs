@@ -18,15 +18,19 @@ public class ShootEvent : EventInterface
 
     private AudioSource audioSource;
 
+    private Collider2D gameObjectCollider;
+
     private Vector2 shootDirection;
 
     public Vector2 ShootDirection { get => shootDirection; set => shootDirection = value; }
+    public AttributeSet GameObjectAttributes { get => gameObjectAttributes;}
 
     public void Awake()
     {
         spawnedBullets = new List<GameObject>();
         despawnedBullets = new List<GameObject>();
         audioSource = GetComponent<AudioSource>();
+        gameObjectCollider = GetComponent<Collider2D>();
     }
 
     public void Start()
