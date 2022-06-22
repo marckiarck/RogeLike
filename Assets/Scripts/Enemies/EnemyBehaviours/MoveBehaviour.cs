@@ -5,12 +5,30 @@ using UnityEngine;
 public class MoveBehaviour : EnemyBehaviourInterface
 {
     [SerializeField]
-    private float moveSpeed = 0f;
+    protected float moveSpeed = 0f;
     protected Vector2 moveDirection = Vector2.right;
+
+    private void Start()
+    {
+        AttributeSet gameObjectAttributes = gameObject.GetComponent<AttributeSet>();
+        if (gameObjectAttributes != null)
+        {
+            float speedAttribute = gameObjectAttributes.GetAttribute(AttributeNames.SPEED);
+
+            if (speedAttribute != 0f)
+            {
+                moveSpeed = speedAttribute;
+            }
+        }
+    }
 
     protected override void ExecuteBehaviour()
     {
-        transform.position += (Vector3)moveDirection * moveSpeed * Time.deltaTime;
+        Move();
     }
 
+    protected void Move()
+    {
+        transform.position += (Vector3)moveDirection * moveSpeed * Time.deltaTime;
+    }
 }

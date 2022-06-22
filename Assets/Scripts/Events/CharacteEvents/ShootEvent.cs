@@ -18,15 +18,19 @@ public class ShootEvent : EventInterface
 
     private AudioSource audioSource;
 
+    private Collider2D gameObjectCollider;
+
     private Vector2 shootDirection;
 
     public Vector2 ShootDirection { get => shootDirection; set => shootDirection = value; }
+    public AttributeSet GameObjectAttributes { get => gameObjectAttributes;}
 
     public void Awake()
     {
         spawnedBullets = new List<GameObject>();
         despawnedBullets = new List<GameObject>();
         audioSource = GetComponent<AudioSource>();
+        gameObjectCollider = GetComponent<Collider2D>();
     }
 
     public void Start()
@@ -36,12 +40,13 @@ public class ShootEvent : EventInterface
         for (int i = 0; i < gameObjectAttributes.GetAttribute(AttributeNames.MAX_BULLETS); ++i)
         {
             GameObject createdBullet = Instantiate<GameObject>(bulletPrefab);
+            createdBullet.GetComponent<BulletColisionEvent>().ShooterEvent = this;
             createdBullet.SetActive(false);
             despawnedBullets.Add(createdBullet);
         }
     }
 
-    protected override void UpdateCollisionEvent()
+    protected override void UpdateCollision()
     {
         if (despawnedBullets.Count != 0)
         {
@@ -51,6 +56,7 @@ public class ShootEvent : EventInterface
 
             CostomizableMoveBehaviour moveBehaviour = spawnedBullet.GetComponent<CostomizableMoveBehaviour>();
             moveBehaviour.SetMoveDirection(ShootDirection);
+            moveBehaviour.SetMoveSpeed(gameObjectAttributes.GetAttribute(AttributeNames.BULLET_SPEED));
 
             despawnedBullets.RemoveAt(0);
             spawnedBullets.Add(spawnedBullet);
@@ -71,5 +77,18 @@ public class ShootEvent : EventInterface
         audioSource.Play();
 
         eventActivated = false;
+    }
+
+    public void DespawnBullet(GameObject despawnedBullet)
+    {
+        for (int i = 0; i < spawnedBullets.Count; ++i)
+        {
+            if (spawnedBullets[i] == despawnedBullet)
+            {
+                despawnedBullet.SetActive(false);
+                despawnedBullets.Add(despawnedBullet);
+                spawnedBullets.RemoveAt(i);
+            }
+        }
     }
 }

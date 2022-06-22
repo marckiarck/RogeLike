@@ -15,6 +15,8 @@ public class PlayerController : MonoBehaviour
     private float shootCooldown;
     [SerializeField]
     private float maxBullets;
+    [SerializeField]
+    private float bulletSpeed;
 
     private Vector2 movingDirection = Vector2.zero;
     private Vector2 shootingDirection = Vector2.zero;
@@ -28,6 +30,7 @@ public class PlayerController : MonoBehaviour
     public float Damage { get => playerAttributes.GetAttribute(AttributeNames.DAMAGE); set => playerAttributes.SetAttributeSafe(AttributeNames.DAMAGE, value); }
     public float ShootCooldown { get => playerAttributes.GetAttribute(AttributeNames.SHOOT_COOLDOWN); set => playerAttributes.SetAttributeSafe(AttributeNames.SHOOT_COOLDOWN, value); }
     public float MaxBullets { get => playerAttributes.GetAttribute(AttributeNames.MAX_BULLETS); set => playerAttributes.SetAttributeSafe(AttributeNames.MAX_BULLETS, value); }
+    public float BulletSpeed { get => playerAttributes.GetAttribute(AttributeNames.BULLET_SPEED); set => playerAttributes.SetAttributeSafe(AttributeNames.BULLET_SPEED, value); }
 
     private void Awake()
     {
@@ -46,6 +49,7 @@ public class PlayerController : MonoBehaviour
         Damage = damage;
         playerAttributes.SetAttribute(AttributeNames.SHOOT_COOLDOWN, shootCooldown);
         playerAttributes.SetAttribute(AttributeNames.MAX_BULLETS, maxBullets);
+        playerAttributes.SetAttribute(AttributeNames.BULLET_SPEED, bulletSpeed);
     }
 
     // Update is called once per frame
@@ -55,6 +59,7 @@ public class PlayerController : MonoBehaviour
         Move();
         AproachShoot();
 
+        print(playerAttributes.GetAttribute(AttributeNames.HEALTH));
     }
 
     private void AproachShoot()

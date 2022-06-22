@@ -14,9 +14,9 @@ public class AutodestructiveHealthReductionCollisionEvent : HelthReduceCollision
         audioSource = GetComponent<AudioSource>();
     }
 
-    protected override void UpdateCollisionEvent()
+    protected override void UpdateCollision()
     {
-        base.UpdateCollisionEvent();
+        base.UpdateCollision();
 
         if (destructionSound != null)
         {
@@ -24,6 +24,6 @@ public class AutodestructiveHealthReductionCollisionEvent : HelthReduceCollision
             audioSource.Play();
         }
 
-        Destroy(gameObject);
+        Destroy(gameObject, destructionSound.length);
     }
 }
