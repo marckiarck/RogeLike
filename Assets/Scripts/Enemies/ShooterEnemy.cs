@@ -45,7 +45,7 @@ public class ShooterEnemy : Enemy
         if (elapsedShootCooldown == ShootCooldown)
         {
             
-            shootEvent.ShootDirection = Vector2.down;
+            shootEvent.ShootDirection = (GameManager.Instance.PlayerReferece.transform.position - gameObject.transform.position).normalized;
             shootEvent.StartEvent();
             elapsedShootCooldown = 0f;
         }
