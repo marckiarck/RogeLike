@@ -14,6 +14,10 @@ namespace Platformer.Sound
         public AudioClip changeSceneAudio;
         private AudioSource audioSource;
 
+        [SerializeField] GameObject menuPanel;
+        [SerializeField] GameObject optionsPanel;
+        [SerializeField] GameObject controlsPanel;
+
         private void Awake()
         {
             sceneName = null;
@@ -32,6 +36,18 @@ namespace Platformer.Sound
                     SceneManager.LoadScene(sceneName);
                 }
             }
+        }
+
+        public void Options(bool active)
+        {
+            menuPanel.SetActive(!active);
+            optionsPanel.SetActive(active);
+        }
+
+        public void Controls(bool active)
+        {
+            menuPanel.SetActive(!active);
+            controlsPanel.SetActive(active);
         }
 
         /// <summary>

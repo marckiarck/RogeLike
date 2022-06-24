@@ -102,7 +102,7 @@ public class InfiniteGenerator : MonoBehaviour
         node.exits = new Vector4(1, 1, 1, 1);
         existingRooms.Add(node.pos, node);
         InstantiateRoom(node);
-        GenerateAdyacents(node);
+        StartCoroutine(GenerateAdyacents(node));
 
         lastPlayerRoom = node;
     }
@@ -133,7 +133,7 @@ public class InfiniteGenerator : MonoBehaviour
 
         if (room != null && room != lastPlayerRoom)
         {
-            GenerateAdyacents(room);
+            StartCoroutine(GenerateAdyacents(room));
             lastPlayerRoom = room;
         }
 
@@ -152,7 +152,7 @@ public class InfiniteGenerator : MonoBehaviour
             new Vector2Int( 1,-1)
     };
 
-    void GenerateAdyacents(RoomNode node)
+    IEnumerator GenerateAdyacents(RoomNode node)
     {
         List<RoomNode> newRooms = new List<RoomNode>();
 
@@ -168,6 +168,7 @@ public class InfiniteGenerator : MonoBehaviour
 
         foreach (RoomNode newRoom in newRooms)
         {
+            yield return 0;
             existingRooms.Add(newRoom.pos, newRoom);
             MakeConections(newRoom);
             InstantiateRoom(newRoom);
@@ -179,6 +180,7 @@ public class InfiniteGenerator : MonoBehaviour
     void MakeConections(RoomNode node)
     {
         int conections = 0;
+        List<int> noConection = new List<int>();
 
         for (int i = 0; i<4; i++)
         {
@@ -197,12 +199,20 @@ public class InfiniteGenerator : MonoBehaviour
                             node.AddExit(i);
                             conections++;
                         }
+                        else 
+                        {
+                            noConection.Add(i);
+                        }
                         break;
                     case 1:
                         if (adyRoom.exits.x == 1)
                         {
                             node.AddExit(i);
                             conections++;
+                        }
+                        else
+                        {
+                            noConection.Add(i);
                         }
                         break;
                     case 2:
@@ -211,6 +221,10 @@ public class InfiniteGenerator : MonoBehaviour
                             node.AddExit(i);
                             conections++;
                         }
+                        else
+                        {
+                            noConection.Add(i);
+                        }
                         break;
                     case 3:
                         if (adyRoom.exits.z == 1)
@@ -218,11 +232,16 @@ public class InfiniteGenerator : MonoBehaviour
                             node.AddExit(i);
                             conections++;
                         }
+                        else
+                        {
+                            noConection.Add(i);
+                        }
                         break;
 
                 }
             }
         }
+
 
         if (conections == 4)
         {
@@ -231,9 +250,9 @@ public class InfiniteGenerator : MonoBehaviour
         }
 
         int newConections = Random.Range(2, 5)-conections;
-        if (conections + newConections >= 4)
+        if (conections + newConections >= 4 && noConection.Count == 0)
         { 
-            node.exits = new Vector4(0,0,0,0);
+            node.exits = new Vector4(1,1,1,1);
             node.type = RType.hall;
             return;
         }
@@ -241,23 +260,22 @@ public class InfiniteGenerator : MonoBehaviour
         List<int> aux = new List<int>();
         for (int i = 0; i<4; i++)
         {
-            if (node.GetExit(i)==0)
+            if (node.GetExit(i)==0 && !noConection.Contains(i))
             {
                 aux.Add(i);
             }
         }
 
-        for (int i = 0; i<newConections; i++)
+        for (int i = 0; i < newConections; i++)
         {
-            if (aux.Count < 1) 
+            if (aux.Count < 1)
             {
-                break; 
+                break;
             }
             int r = Random.Range(0, aux.Count);
             node.AddExit(aux[r]);
-            aux.Remove(r);
+            aux.RemoveAt(r);
             conections++;
-
         }
 
         switch (conections)
@@ -275,6 +293,7 @@ public class InfiniteGenerator : MonoBehaviour
                 break;
         }
     }
+
 
 
     void InstantiateRoom(RoomNode node)
