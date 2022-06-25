@@ -42,7 +42,13 @@ public class ShooterEnemy : Enemy
             shootEvent = gameObject.GetComponent<ShootEvent>();
         }
 
-        if (elapsedShootCooldown == ShootCooldown)
+        float distanceToPlayer = 50f;
+        GameObject player = GameManager.Instance.PlayerReferece;
+        if (player)
+        {
+            distanceToPlayer = (gameObject.transform.position - GameManager.Instance.PlayerReferece.transform.position).magnitude;
+        }
+        if (elapsedShootCooldown == ShootCooldown && distanceToPlayer < 50f)
         {
 
             if (GameManager.Instance.PlayerReferece == null)

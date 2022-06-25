@@ -23,6 +23,8 @@ public class PlayerController : MonoBehaviour
     private AttributeSet playerAttributes;
     private ShootEvent shootEvent;
 
+    private Collider2D myCollider;
+
     private float elapsedShootCooldown;
 
     public float Health { get => playerAttributes.GetAttribute(AttributeNames.HEALTH); set => playerAttributes.SetAttributeSafe(AttributeNames.HEALTH, value); }
@@ -40,6 +42,8 @@ public class PlayerController : MonoBehaviour
         shootEvent = gameObject.GetComponent<ShootEvent>();
 
         elapsedShootCooldown = ShootCooldown;
+
+        myCollider = GetComponent<Collider2D>();
     }
 
     private void InitializeAttributes()
@@ -74,7 +78,22 @@ public class PlayerController : MonoBehaviour
 
     private void Move()
     {
-        transform.position += (Vector3)movingDirection * speed * Time.deltaTime;
+        RaycastHit2D[] hits = Physics2D.RaycastAll(gameObject.transform.position, movingDirection.normalized, speed * Time.deltaTime * myCollider.bounds.size.magnitude);
+        bool collisionDetected = false;
+        foreach (RaycastHit2D hit in hits)
+        {
+            if (hit.collider != null && (hit.collider.gameObject.tag == "Wall"))
+            {
+                collisionDetected = true;
+                break;
+            }
+        }
+
+        if (collisionDetected == false)
+        {
+            transform.position += (Vector3)movingDirection * speed * Time.deltaTime;
+        }
+        
     }
 
     private void UpdateInput()

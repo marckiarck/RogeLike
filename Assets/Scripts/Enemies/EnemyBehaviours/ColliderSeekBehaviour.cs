@@ -6,6 +6,12 @@ public class ColliderSeekBehaviour : SeekBehaviour
 {
     protected override void ExecuteBehaviour()
     {
+        GameObject player = GameManager.Instance.PlayerReferece;
+        if (player && (player.transform.position - gameObject.transform.position).magnitude > 20f)
+        {
+            return;
+        }
+
         if (objetive == null || ExecuteEnemyAvoidance())
         {
             return;

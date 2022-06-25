@@ -29,6 +29,6 @@ public class MoveBehaviour : EnemyBehaviourInterface
 
     protected void Move()
     {
-        transform.position += (Vector3)moveDirection * moveSpeed * Time.deltaTime;
+        transform.position += (Vector3)moveDirection.normalized * moveSpeed * Time.deltaTime;
     }
 }

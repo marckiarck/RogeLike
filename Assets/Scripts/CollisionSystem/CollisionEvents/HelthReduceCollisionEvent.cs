@@ -9,13 +9,16 @@ public class HelthReduceCollisionEvent : CollisionEvent
         AttributeSet collidedAttributes = CollidedObject.GetComponent<AttributeSet>();
         AttributeSet collidingAttributes = CollidingObject.GetComponent<AttributeSet>();
 
-        float damageApplied = collidingAttributes.GetAttribute(AttributeNames.DAMAGE);
+        if (collidedAttributes && collidingAttributes)
+        {
+            float damageApplied = collidingAttributes.GetAttribute(AttributeNames.DAMAGE);
 
-        float reducedHealth = collidedAttributes.GetAttribute(AttributeNames.HEALTH) - damageApplied;
+            float reducedHealth = collidedAttributes.GetAttribute(AttributeNames.HEALTH) - damageApplied;
 
-        reducedHealth = Mathf.Max(reducedHealth, 0f);
+            reducedHealth = Mathf.Max(reducedHealth, 0f);
 
-        collidedAttributes.SetAttributeSafe(AttributeNames.HEALTH, reducedHealth);
+            collidedAttributes.SetAttributeSafe(AttributeNames.HEALTH, reducedHealth);
+        }
 
         eventActivated = false;
     }
