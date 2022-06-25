@@ -13,6 +13,13 @@ public class Enemy : MonoBehaviour
     private float damage;
     [SerializeField]
     private float enemyActivationDelay;
+    [SerializeField]
+    private float upgradeTime;
+    [SerializeField]
+    private float speedUpgrade;
+
+    private float updateElepsedTime;
+    public static float currentSpeedUpgrade = 0f;
 
     protected AttributeSet enemyAttributes;
 
@@ -24,6 +31,8 @@ public class Enemy : MonoBehaviour
     {
         enemyAttributes = gameObject.GetComponent<AttributeSet>();
         InitializeAttributes();
+
+        updateElepsedTime = 0f;
     }
 
     private void Start()
@@ -35,9 +44,22 @@ public class Enemy : MonoBehaviour
         }
     }
 
+    protected virtual void UpgradeAttributes()
+    {
+        currentSpeedUpgrade += speedUpgrade;
+    }
+
     public virtual void Update()
     {
         enemyAttributes.SetAttributeSafe(AttributeNames.ACTIVATION_DELAY, enemyAttributes.GetAttribute(AttributeNames.ACTIVATION_DELAY) - Time.deltaTime);
+
+        if (updateElepsedTime >= upgradeTime)
+        {
+            UpgradeAttributes();
+            updateElepsedTime -= upgradeTime;
+        }
+
+        updateElepsedTime += Time.deltaTime;
     }
 
     protected virtual void InitializeAttributes()
@@ -48,7 +70,7 @@ public class Enemy : MonoBehaviour
         }
 
         enemyAttributes.SetAttribute(AttributeNames.HEALTH, health);
-        enemyAttributes.SetAttribute(AttributeNames.SPEED, speed);
+        enemyAttributes.SetAttribute(AttributeNames.SPEED, speed + currentSpeedUpgrade);
         enemyAttributes.SetAttribute(AttributeNames.DAMAGE, damage);
         enemyAttributes.SetAttribute(AttributeNames.ACTIVATION_DELAY, enemyActivationDelay);
     }

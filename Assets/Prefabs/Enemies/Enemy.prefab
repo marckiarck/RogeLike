@@ -161,6 +161,8 @@ MonoBehaviour:
   health: 1
   damage: 1
   enemyActivationDelay: 1.5
+  upgradeTime: 30
+  speedUpgrade: 0.1
 --- !u!114 &3192178460834320294
 MonoBehaviour:
   m_ObjectHideFlags: 0

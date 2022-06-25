@@ -10,6 +10,13 @@ public class ShooterEnemy : Enemy
     private float maxBullets;
     [SerializeField]
     private float bulletSpeed;
+    [SerializeField]
+    private float bulletSpeedUpgrade;
+    [SerializeField]
+    private float shootCooldownUpgrade;
+
+    public static float currentBulletSpeedUpgrade = 0f;
+    public static float currentShootCooldownUpgrade = 0f;
 
     private bool shootAbble = true;
     private float elapsedShootCooldown;
@@ -36,13 +43,19 @@ public class ShooterEnemy : Enemy
 
     }
 
+    protected override void UpgradeAttributes()
+    {
+        currentBulletSpeedUpgrade = bulletSpeedUpgrade;
+        currentShootCooldownUpgrade = shootCooldownUpgrade;
+    }
+
     protected override void InitializeAttributes()
     {
         base.InitializeAttributes();
 
-        enemyAttributes.SetAttribute(AttributeNames.SHOOT_COOLDOWN, shootCooldown);
+        enemyAttributes.SetAttribute(AttributeNames.SHOOT_COOLDOWN, shootCooldown + currentShootCooldownUpgrade);
         enemyAttributes.SetAttribute(AttributeNames.MAX_BULLETS, maxBullets);
-        enemyAttributes.SetAttribute(AttributeNames.BULLET_SPEED, bulletSpeed);
+        enemyAttributes.SetAttribute(AttributeNames.BULLET_SPEED, bulletSpeed + currentBulletSpeedUpgrade);
     }
 
     private void AproachShoot()

@@ -28,6 +28,10 @@ public class GameManager : TemporalSingleton<GameManager>
         gameAudioSource = gameObject.AddComponent<AudioSource>();
 
         score = 0f;
+
+        Enemy.currentSpeedUpgrade = 0f;
+        ShooterEnemy.currentBulletSpeedUpgrade = 0f;
+        ShooterEnemy.currentShootCooldownUpgrade = 0f;
     }
 
     private void Update()
