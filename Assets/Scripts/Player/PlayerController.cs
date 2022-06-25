@@ -60,7 +60,11 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         UpdateInput();
-        Move();
+        if (playerAttributes.GetAttribute(AttributeNames.HEALTH) > 0f)
+        {
+            Move();
+        }
+
         AproachShoot();
     }
 
@@ -78,22 +82,29 @@ public class PlayerController : MonoBehaviour
 
     private void Move()
     {
-        RaycastHit2D[] hits = Physics2D.RaycastAll(gameObject.transform.position, movingDirection.normalized, speed * Time.deltaTime * myCollider.bounds.size.magnitude);
-        bool collisionDetected = false;
+
+        RaycastHit2D[] hits = Physics2D.BoxCastAll(gameObject.transform.position, myCollider.bounds.size, 0f, new Vector2(movingDirection.x, 0f), (speed * Time.deltaTime) * 2f);
         foreach (RaycastHit2D hit in hits)
         {
             if (hit.collider != null && (hit.collider.gameObject.tag == "Wall"))
             {
-                collisionDetected = true;
+                movingDirection = new Vector2(0f, movingDirection.y);
                 break;
             }
         }
 
-        if (collisionDetected == false)
+        hits = Physics2D.BoxCastAll(gameObject.transform.position, myCollider.bounds.size, 0f, new Vector2(0f, movingDirection.y), (speed * Time.deltaTime) * 2f);
+        foreach (RaycastHit2D hit in hits)
         {
-            transform.position += (Vector3)movingDirection * speed * Time.deltaTime;
+            if (hit.collider != null && (hit.collider.gameObject.tag == "Wall"))
+            {
+                movingDirection = new Vector2(movingDirection.x, 0f);
+                break;
+            }
         }
-        
+
+        transform.position += (Vector3)movingDirection * speed * Time.deltaTime;
+
     }
 
     private void UpdateInput()
