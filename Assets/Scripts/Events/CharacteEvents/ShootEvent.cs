@@ -48,35 +48,39 @@ public class ShootEvent : EventInterface
 
     protected override void UpdateEvent()
     {
-        if (despawnedBullets.Count != 0)
+        if (gameObjectAttributes.GetAttribute(AttributeNames.ACTIVATION_DELAY) <= 0f)
         {
-            GameObject spawnedBullet = despawnedBullets[0];
-            spawnedBullet.transform.position = gameObject.transform.position;
-            spawnedBullet.SetActive(true);
+            if (despawnedBullets.Count != 0)
+            {
+                GameObject spawnedBullet = despawnedBullets[0];
+                spawnedBullet.transform.position = gameObject.transform.position;
+                spawnedBullet.SetActive(true);
 
-            CostomizableMoveBehaviour moveBehaviour = spawnedBullet.GetComponent<CostomizableMoveBehaviour>();
-            moveBehaviour.SetMoveDirection(ShootDirection);
-            moveBehaviour.SetMoveSpeed(gameObjectAttributes.GetAttribute(AttributeNames.BULLET_SPEED));
+                CostomizableMoveBehaviour moveBehaviour = spawnedBullet.GetComponent<CostomizableMoveBehaviour>();
+                moveBehaviour.SetMoveDirection(ShootDirection);
+                moveBehaviour.SetMoveSpeed(gameObjectAttributes.GetAttribute(AttributeNames.BULLET_SPEED));
 
-            despawnedBullets.RemoveAt(0);
-            spawnedBullets.Add(spawnedBullet);
+                despawnedBullets.RemoveAt(0);
+                spawnedBullets.Add(spawnedBullet);
+            }
+            else
+            {
+                GameObject spawnedBullet = spawnedBullets[0];
+                spawnedBullet.transform.position = gameObject.transform.position;
+
+                CostomizableMoveBehaviour moveBehaviour = spawnedBullet.GetComponent<CostomizableMoveBehaviour>();
+                moveBehaviour.SetMoveDirection(ShootDirection);
+
+                spawnedBullets.RemoveAt(0);
+                spawnedBullets.Add(spawnedBullet);
+            }
+
+            audioSource.clip = shootSound;
+            audioSource.Play();
+
+            eventActivated = false;
         }
-        else
-        {
-            GameObject spawnedBullet = spawnedBullets[0];
-            spawnedBullet.transform.position = gameObject.transform.position;
-
-            CostomizableMoveBehaviour moveBehaviour = spawnedBullet.GetComponent<CostomizableMoveBehaviour>();
-            moveBehaviour.SetMoveDirection(ShootDirection);
-
-            spawnedBullets.RemoveAt(0);
-            spawnedBullets.Add(spawnedBullet);
-        }
-
-        audioSource.clip = shootSound;
-        audioSource.Play();
-
-        eventActivated = false;
+        
     }
 
     public void DespawnBullet(GameObject despawnedBullet)

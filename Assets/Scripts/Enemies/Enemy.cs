@@ -11,6 +11,8 @@ public class Enemy : MonoBehaviour
     private float health;
     [SerializeField]
     private float damage;
+    [SerializeField]
+    private float enemyActivationDelay;
 
     protected AttributeSet enemyAttributes;
 
@@ -33,6 +35,11 @@ public class Enemy : MonoBehaviour
         }
     }
 
+    public virtual void Update()
+    {
+        enemyAttributes.SetAttributeSafe(AttributeNames.ACTIVATION_DELAY, enemyAttributes.GetAttribute(AttributeNames.ACTIVATION_DELAY) - Time.deltaTime);
+    }
+
     protected virtual void InitializeAttributes()
     {
         if (enemyAttributes == null)
@@ -43,5 +50,6 @@ public class Enemy : MonoBehaviour
         enemyAttributes.SetAttribute(AttributeNames.HEALTH, health);
         enemyAttributes.SetAttribute(AttributeNames.SPEED, speed);
         enemyAttributes.SetAttribute(AttributeNames.DAMAGE, damage);
+        enemyAttributes.SetAttribute(AttributeNames.ACTIVATION_DELAY, enemyActivationDelay);
     }
 }

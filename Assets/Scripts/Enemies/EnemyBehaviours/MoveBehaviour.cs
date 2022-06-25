@@ -8,12 +8,13 @@ public class MoveBehaviour : EnemyBehaviourInterface
     protected float moveSpeed = 0f;
     protected Vector2 moveDirection = Vector2.right;
 
-    private void Start()
+    public override void Start()
     {
-        AttributeSet gameObjectAttributes = gameObject.GetComponent<AttributeSet>();
-        if (gameObjectAttributes != null)
+        base.Start();
+
+        if (enemyAttributes != null)
         {
-            float speedAttribute = gameObjectAttributes.GetAttribute(AttributeNames.SPEED);
+            float speedAttribute = enemyAttributes.GetAttribute(AttributeNames.SPEED);
 
             if (speedAttribute != 0f)
             {

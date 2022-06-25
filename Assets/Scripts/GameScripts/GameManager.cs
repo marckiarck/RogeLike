@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Utils;
 
 public class GameManager : TemporalSingleton<GameManager>
@@ -27,6 +28,14 @@ public class GameManager : TemporalSingleton<GameManager>
         gameAudioSource = gameObject.AddComponent<AudioSource>();
 
         score = 0f;
+    }
+
+    private void Update()
+    {
+        if (playerAttributes.GetAttribute(AttributeNames.HEALTH) <= 0f)
+        {
+            SceneManager.LoadScene("GameMenu");
+        }
     }
 
     public float GetPlayerLife()

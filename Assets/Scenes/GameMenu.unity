@@ -1133,7 +1133,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: asdw -> hola marcos  :3
+  m_text: 'W A S D -> Disparar
+
+    UP Down Left Right -> Moverse'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fe09f9f9020b7d84392424ad74633828, type: 2}
   m_sharedMaterial: {fileID: 5786475789848354684, guid: fe09f9f9020b7d84392424ad74633828, type: 2}
@@ -3285,7 +3287,7 @@ PrefabInstance:
     - target: {fileID: 2331487793239818911, guid: 7d36bf49d8599794bbe1f0f296cc50d5, type: 3}
       propertyPath: m_FirstSelected
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 681433654}
     - target: {fileID: 6363671477964105585, guid: 7d36bf49d8599794bbe1f0f296cc50d5, type: 3}
       propertyPath: m_Name
       value: EventSystem

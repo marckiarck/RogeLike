@@ -22,6 +22,9 @@ public class DeathEvent : ConditionalEvents
         if (audioSource.isPlaying == false)
         {
             audioSource.PlayOneShot(deathSound);
+
+            Collider2D myCollider = gameObject.GetComponent<Collider2D>();
+            myCollider.enabled = false;
         }
 
         Destroy(gameObject, deathSound.length);

@@ -10,6 +10,7 @@ public static class AttributeNames
     public static string SHOOT_COOLDOWN = "ShootCooldown";
     public static string MAX_BULLETS = "MaxBullets";
     public static string BULLET_SPEED = "BulletSpeed";
+    public static string ACTIVATION_DELAY = "ActivationDelay";
 }
 
 public class AttributeSet : MonoBehaviour
