@@ -45,17 +45,17 @@ public class ShooterEnemy : Enemy
 
     protected override void UpgradeAttributes()
     {
-        currentBulletSpeedUpgrade = bulletSpeedUpgrade;
-        currentShootCooldownUpgrade = shootCooldownUpgrade;
+        currentBulletSpeedUpgrade += bulletSpeedUpgrade;
+        currentShootCooldownUpgrade += shootCooldownUpgrade;
     }
 
     protected override void InitializeAttributes()
     {
         base.InitializeAttributes();
 
-        enemyAttributes.SetAttribute(AttributeNames.SHOOT_COOLDOWN, shootCooldown + currentShootCooldownUpgrade);
+        enemyAttributes.SetAttribute(AttributeNames.SHOOT_COOLDOWN, Mathf.Max(shootCooldown - currentShootCooldownUpgrade, 0.1f));
         enemyAttributes.SetAttribute(AttributeNames.MAX_BULLETS, maxBullets);
-        enemyAttributes.SetAttribute(AttributeNames.BULLET_SPEED, bulletSpeed + currentBulletSpeedUpgrade);
+        enemyAttributes.SetAttribute(AttributeNames.BULLET_SPEED, Mathf.Min(bulletSpeed + currentBulletSpeedUpgrade, 25f));
     }
 
     private void AproachShoot()

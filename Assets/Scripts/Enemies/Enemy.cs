@@ -70,7 +70,7 @@ public class Enemy : MonoBehaviour
         }
 
         enemyAttributes.SetAttribute(AttributeNames.HEALTH, health);
-        enemyAttributes.SetAttribute(AttributeNames.SPEED, speed + currentSpeedUpgrade);
+        enemyAttributes.SetAttribute(AttributeNames.SPEED, Mathf.Min(speed + currentSpeedUpgrade, 20f));
         enemyAttributes.SetAttribute(AttributeNames.DAMAGE, damage);
         enemyAttributes.SetAttribute(AttributeNames.ACTIVATION_DELAY, enemyActivationDelay);
     }
