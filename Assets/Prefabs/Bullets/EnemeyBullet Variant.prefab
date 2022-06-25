@@ -55,6 +55,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemeyBullet Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 242020099186142726, guid: 68b17b3e0cacfc6419166bfdd550e9f2, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 242020099186142727, guid: 68b17b3e0cacfc6419166bfdd550e9f2, type: 3}
       propertyPath: m_Color.b
       value: 0
@@ -70,6 +74,14 @@ PrefabInstance:
     - target: {fileID: 825812721778115096, guid: 68b17b3e0cacfc6419166bfdd550e9f2, type: 3}
       propertyPath: tagFilter
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 825812721778115096, guid: 68b17b3e0cacfc6419166bfdd550e9f2, type: 3}
+      propertyPath: collisionSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 5ff4175844f830f428280cebf52c21c1, type: 3}
+    - target: {fileID: 3024869084891274318, guid: 68b17b3e0cacfc6419166bfdd550e9f2, type: 3}
+      propertyPath: collisionSound
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 68b17b3e0cacfc6419166bfdd550e9f2, type: 3}

@@ -9,6 +9,7 @@ public class GameManager : TemporalSingleton<GameManager>
     private GameObject playerPrefab;
     private GameObject playerReferece;
     private AttributeSet playerAttributes;
+    private AudioSource gameAudioSource;
 
     public static float score = 0f;
 
@@ -23,6 +24,8 @@ public class GameManager : TemporalSingleton<GameManager>
 
         playerAttributes = playerReferece.GetComponent<AttributeSet>();
 
+        gameAudioSource = gameObject.AddComponent<AudioSource>();
+
         score = 0f;
     }
 
@@ -36,5 +39,10 @@ public class GameManager : TemporalSingleton<GameManager>
         {
             return 0f;
         }
+    }
+
+    public void PlayGameSound(AudioClip clip)
+    {
+        gameAudioSource.PlayOneShot(clip);
     }
 }

@@ -278,7 +278,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d5e5ee880db2574e82934a2a28f4a49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  destructionSound: {fileID: 8300000, guid: 1c31d4e41b7594c4cba9b624e1862ec0, type: 3}
+  destructionSound: {fileID: 0}
 --- !u!114 &1906218354629661628
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -304,4 +304,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tagFilter: Wall
-  collisionSound: {fileID: 8300000, guid: 1c31d4e41b7594c4cba9b624e1862ec0, type: 3}
+  collisionSound: {fileID: 0}

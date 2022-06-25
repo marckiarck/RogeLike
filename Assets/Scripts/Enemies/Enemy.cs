@@ -18,7 +18,7 @@ public class Enemy : MonoBehaviour
     public float Speed { get => enemyAttributes.GetAttribute(AttributeNames.SPEED); set => enemyAttributes.SetAttributeSafe(AttributeNames.SPEED, value); }
     public float Damage { get => enemyAttributes.GetAttribute(AttributeNames.DAMAGE); set => enemyAttributes.SetAttributeSafe(AttributeNames.DAMAGE, value); }
 
-    private void Awake()
+    public virtual void Awake()
     {
         enemyAttributes = gameObject.GetComponent<AttributeSet>();
         InitializeAttributes();
