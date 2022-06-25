@@ -4,9 +4,16 @@ using UnityEngine;
 
 public class ColliderSeekBehaviour : SeekBehaviour
 {
+    private GameObject player;
+    public void Awake()
+    {
+        player = GameManager.Instance.PlayerReferece;
+
+    }
+
     protected override void ExecuteBehaviour()
     {
-        GameObject player = GameManager.Instance.PlayerReferece;
+        
         if (player && (player.transform.position - gameObject.transform.position).magnitude > 20f)
         {
             return;

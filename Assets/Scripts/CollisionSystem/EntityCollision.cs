@@ -13,14 +13,12 @@ public class EntityCollision : MonoBehaviour
 
     [SerializeField]
     private AudioClip collisionSound;
-    private AudioSource audioSource;
 
     private CollisionEvent collisonEvent;
 
     private void Start()
     {
         collisonEvent = gameObject.GetComponent<CollisionEvent>();
-        audioSource = gameObject.GetComponent<AudioSource>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -29,10 +27,12 @@ public class EntityCollision : MonoBehaviour
         {
             collisonEvent.CollidedObject = collision.gameObject;
             collisonEvent.CollidingObject = gameObject;
-            if (audioSource != null && collisionSound != null)
+
+            if (collisionSound)
             {
-                audioSource.PlayOneShot(collisionSound);
+                GameManager.Instance.PlayGameSound(collisionSound);
             }
+
             collisonEvent.StartEvent();
         }
     }
