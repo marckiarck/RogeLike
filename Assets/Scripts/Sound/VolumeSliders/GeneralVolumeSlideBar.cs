@@ -7,7 +7,11 @@ namespace Platformer.Sound.VolumeSliders
         protected override void SetVolumeSettings()
         {
             VolumeManager.SetGeneralVolume(volume);
-            volumeText.text = GetVolumeText();
+            if (volumeText)
+            {
+                volumeText.text = GetVolumeText();
+            }
+            
         }
 
         protected override void LoadVolume()
