@@ -29,12 +29,6 @@ public class BulletColisionEvent : HelthReduceCollisionEvent
 
         shooterEvent.DespawnBullet(gameObject);
 
-        if (destructionSound != null)
-        {
-            audioSource.clip = destructionSound;
-            audioSource.Play();
-        }
-
         base.UpdateEvent();
     }
 }

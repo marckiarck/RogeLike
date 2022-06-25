@@ -8,7 +8,11 @@
         protected override void SetVolumeSettings()
         {
             VolumeManager.SetMusicVolume(volume);
-            volumeText.text = GetVolumeText();
+            if (volumeText)
+            {
+                volumeText.text = GetVolumeText();
+            }
+            
         }
 
         protected override void LoadVolume()

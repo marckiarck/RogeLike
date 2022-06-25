@@ -18,7 +18,7 @@ public class AutodestructiveHealthReductionCollisionEvent : HelthReduceCollision
     {
         base.UpdateEvent();
 
-        if (destructionSound != null)
+        if (destructionSound != null && (gameObject.transform.position - GameManager.Instance.PlayerReferece.transform.position).magnitude < 10f)
         {
             audioSource.clip = destructionSound;
             audioSource.Play();
