@@ -19,4 +19,20 @@ public class BulletUpgrade : MonoBehaviour
 
         upgradeSprite.sprite = selectedBulletupgrade.GetComponent<SpriteRenderer>().sprite;
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            collision.gameObject.GetComponent<ShootEvent>().ChangeBulletType(selectedBulletupgrade);
+            BulletVariant bulletVariant = selectedBulletupgrade.GetComponent<BulletVariant>();
+
+            if (bulletVariant)
+            {
+                bulletVariant.ChangePlayerAttributes();
+            }
+
+            Destroy(gameObject);
+        }
+    }
 }

@@ -42,6 +42,11 @@ public class GameManager : TemporalSingleton<GameManager>
         }
     }
 
+    public AttributeSet GetPlayerAttributes()
+    {
+        return playerAttributes;
+    }
+
     public float GetPlayerLife()
     {
         if (playerAttributes)

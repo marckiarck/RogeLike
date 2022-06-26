@@ -161,7 +161,7 @@ MonoBehaviour:
   health: 1
   damage: 1
   enemyActivationDelay: 1.5
-  upgradeTime: 30
+  upgradeTime: 120
   speedUpgrade: 0.1
 --- !u!114 &3192178460834320294
 MonoBehaviour:

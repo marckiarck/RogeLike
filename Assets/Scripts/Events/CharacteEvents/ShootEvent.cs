@@ -36,7 +36,11 @@ public class ShootEvent : EventInterface
     public void Start()
     {
         gameObjectAttributes = gameObject.GetComponent<AttributeSet>();
+        CreateBullets();
+    }
 
+    private void CreateBullets()
+    {
         for (int i = 0; i < gameObjectAttributes.GetAttribute(AttributeNames.MAX_BULLETS); ++i)
         {
             GameObject createdBullet = Instantiate<GameObject>(bulletPrefab);
@@ -95,4 +99,24 @@ public class ShootEvent : EventInterface
             }
         }
     }
+
+    public void ChangeBulletType(GameObject newBulletPrefab)
+    {
+        bulletPrefab = newBulletPrefab;
+
+        foreach (GameObject spawnedBullet in spawnedBullets)
+        {
+            Destroy(spawnedBullet);
+        }
+        spawnedBullets.Clear();
+
+        foreach (GameObject despawnedBullet in despawnedBullets)
+        {
+            Destroy(despawnedBullet);
+        }
+        despawnedBullets.Clear();
+
+        CreateBullets();
+    }
+
 }

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3521702859489991173}
   - component: {fileID: 3521702859489991171}
   - component: {fileID: 3521702859489991172}
+  - component: {fileID: 5832732019699835546}
   m_Layer: 0
   m_Name: BulletsUpgrade
   m_TagString: Untagged
@@ -46,7 +47,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletUpgradesPrefabs:
-  - {fileID: 242020099186142726, guid: 68b17b3e0cacfc6419166bfdd550e9f2, type: 3}
+  - {fileID: 3697219034235901873, guid: d3664908cac2a924eb7739537995fcf0, type: 3}
+  - {fileID: 679120276867469926, guid: e2f74a5fe38314041890fdbe6e643163, type: 3}
 --- !u!212 &3521702859489991172
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -98,6 +100,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!58 &5832732019699835546
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3521702859489991170}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 1.014525
 --- !u!1 &3521702861150512350
 GameObject:
   m_ObjectHideFlags: 0
