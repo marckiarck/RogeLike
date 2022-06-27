@@ -87,6 +87,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SuicideEnemey Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 8085481539577966585, guid: ba49344c84e103e4e9fe6fe6b71655e5, type: 3}
+      propertyPath: particles
+      value: 
+      objectReference: {fileID: 7587248770530168300, guid: d13ac6a06f356b9409eae77ff8c9e61a, type: 3}
     m_RemovedComponents:
     - {fileID: 3192178460834320294, guid: ba49344c84e103e4e9fe6fe6b71655e5, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: ba49344c84e103e4e9fe6fe6b71655e5, type: 3}

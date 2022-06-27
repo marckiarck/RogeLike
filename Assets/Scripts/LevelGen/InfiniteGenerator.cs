@@ -11,54 +11,6 @@ public enum RType
     hall
 }
 
-public class RoomNode
-{
-    public RType type;
-    public Vector2Int pos;
-    public Vector3Int worldPos;
-    public Vector4 exits = new Vector4(0, 0, 0, 0);
-
-    public void AddExit(int pos)
-    {
-        switch (pos)
-        {
-            case 0:
-                exits.x = 1;
-                break;
-            case 1:
-                exits.y = 1;
-                break;
-            case 2:
-                exits.z = 1;
-                break;
-            case 3:
-                exits.w = 1;
-                break;
-        }
-    }
-
-    public int GetExit(int pos)
-    {
-        switch (pos)
-        {
-            case 0:
-                return (int)exits.x;
-            case 1:
-                return (int)exits.y;
-            case 2:
-                return (int)exits.z;
-            case 3:
-                return (int)exits.w;
-        }
-        return 0;
-    }
-    public RoomNode(int row, int column, int unitSize)
-    {
-        pos = new Vector2Int(row, column);
-        worldPos = new Vector3Int(row * unitSize, column * unitSize, 0);
-    }
-}
-
 
 public class InfiniteGenerator : MonoBehaviour
 {
@@ -110,7 +62,7 @@ public class InfiniteGenerator : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Time.frameCount % 10 == 0)
+        if (Time.frameCount % 15 == 0)
         {
             CheckPlayerPos();
         }
@@ -363,5 +315,55 @@ public class InfiniteGenerator : MonoBehaviour
         }
 
         return roomData.hall.type;
+    }
+}
+
+
+
+public class RoomNode
+{
+    public RType type;
+    public Vector2Int pos;
+    public Vector3Int worldPos;
+    public Vector4 exits = new Vector4(0, 0, 0, 0);
+
+    public void AddExit(int pos)
+    {
+        switch (pos)
+        {
+            case 0:
+                exits.x = 1;
+                break;
+            case 1:
+                exits.y = 1;
+                break;
+            case 2:
+                exits.z = 1;
+                break;
+            case 3:
+                exits.w = 1;
+                break;
+        }
+    }
+
+    public int GetExit(int pos)
+    {
+        switch (pos)
+        {
+            case 0:
+                return (int)exits.x;
+            case 1:
+                return (int)exits.y;
+            case 2:
+                return (int)exits.z;
+            case 3:
+                return (int)exits.w;
+        }
+        return 0;
+    }
+    public RoomNode(int row, int column, int unitSize)
+    {
+        pos = new Vector2Int(row, column);
+        worldPos = new Vector3Int(row * unitSize, column * unitSize, 0);
     }
 }

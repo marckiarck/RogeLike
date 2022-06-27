@@ -64,6 +64,11 @@ public class PlayerController : MonoBehaviour
         {
             Move();
         }
+        else 
+        {
+            GameManager.Instance.EndGame();
+            this.enabled = false;
+        }
 
         AproachShoot();
     }

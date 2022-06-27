@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using Utils;
 
 public class GameManager : TemporalSingleton<GameManager>
@@ -12,6 +11,7 @@ public class GameManager : TemporalSingleton<GameManager>
     private AttributeSet playerAttributes;
     private AudioSource gameAudioSource;
 
+    public GameObject gameOverPanel;
     public static float score = 0f;
 
     public GameObject PlayerReferece { get => playerReferece;}
@@ -34,12 +34,11 @@ public class GameManager : TemporalSingleton<GameManager>
         ShooterEnemy.currentShootCooldownUpgrade = 0f;
     }
 
-    private void Update()
+
+    public void EndGame()
     {
-        if (playerAttributes.GetAttribute(AttributeNames.HEALTH) <= 0f)
-        {
-            SceneManager.LoadScene("GameMenu");
-        }
+        if(gameOverPanel!=null)
+        gameOverPanel.SetActive(true);
     }
 
     public AttributeSet GetPlayerAttributes()
