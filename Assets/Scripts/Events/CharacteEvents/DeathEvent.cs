@@ -6,6 +6,9 @@ public class DeathEvent : ConditionalEvents
 {
     protected AttributeSet gameObjectAttributes;
 
+    [SerializeField] GameObject particles;
+    bool aux = false;
+
     [SerializeField]
     private AudioClip deathSound;
     private AudioSource audioSource;
@@ -27,6 +30,13 @@ public class DeathEvent : ConditionalEvents
             myCollider.enabled = false;
         }
 
+        if (particles != null && !aux)
+        {
+            print("a");
+            GameObject p = Instantiate(particles, this.transform.position, Quaternion.identity);
+            Destroy(p, 2);
+            aux = true;
+        }
         Destroy(gameObject, deathSound.length);
         eventActivated = false;
     }
