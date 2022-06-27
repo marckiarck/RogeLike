@@ -88,7 +88,7 @@ public class PlayerController : MonoBehaviour
     private void Move()
     {
 
-        RaycastHit2D[] hits = Physics2D.BoxCastAll(gameObject.transform.position, myCollider.bounds.size, 0f, new Vector2(movingDirection.x, 0f), (speed * Time.deltaTime) * 2f);
+        RaycastHit2D[] hits = Physics2D.BoxCastAll(gameObject.transform.position, myCollider.bounds.size, 0f, new Vector2(movingDirection.x, 0f), (speed * Time.deltaTime) * 5f);
         foreach (RaycastHit2D hit in hits)
         {
             if (hit.collider != null && (hit.collider.gameObject.tag == "Wall"))
@@ -98,7 +98,7 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        hits = Physics2D.BoxCastAll(gameObject.transform.position, myCollider.bounds.size, 0f, new Vector2(0f, movingDirection.y), (speed * Time.deltaTime) * 2f);
+        hits = Physics2D.BoxCastAll(gameObject.transform.position, myCollider.bounds.size, 0f, new Vector2(0f, movingDirection.y), (speed * Time.deltaTime) * 5f);
         foreach (RaycastHit2D hit in hits)
         {
             if (hit.collider != null && (hit.collider.gameObject.tag == "Wall"))

@@ -45,7 +45,7 @@ namespace Platformer.Sound.VolumeSliders
         /// </summary>
         private void HandleAudioReproduction()
         {
-            if(lastVolume != volume)
+            if(lastVolume != volume && audioSource && valueChangeAudio)
             {
                 audioSource.PlayOneShot(valueChangeAudio);
             }
