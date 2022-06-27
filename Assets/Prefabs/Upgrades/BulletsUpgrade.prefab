@@ -46,6 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09ad50813f8c67e449e36abb60e511f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  upgradeSound: {fileID: 8300000, guid: b4220410fb663784ab0145e4a7f146eb, type: 3}
   bulletUpgradesPrefabs:
   - {fileID: 3697219034235901873, guid: d3664908cac2a924eb7739537995fcf0, type: 3}
   - {fileID: 679120276867469926, guid: e2f74a5fe38314041890fdbe6e643163, type: 3}
@@ -88,7 +89,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 3
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -187,7 +188,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 2747690628134850419, guid: 16037dbd798344f57a526d53d48f5ead, type: 3}
+  m_Sprite: {fileID: -6859001260349468157, guid: 144636478bd471b41a69d29216848fc4, type: 3}
   m_Color: {r: 0.952361, g: 1, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0

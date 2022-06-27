@@ -10,6 +10,8 @@ public class StatsUpgrade : MonoBehaviour
     private float shootColdownUpgrade;
     [SerializeField]
     private float bulletSpeedUpgrade;
+    [SerializeField]
+    private AudioClip upgradeSound;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -36,6 +38,7 @@ public class StatsUpgrade : MonoBehaviour
             
         }
 
+        GameManager.Instance.PlayGameSound(upgradeSound);
         Destroy(gameObject);
     }
 }
