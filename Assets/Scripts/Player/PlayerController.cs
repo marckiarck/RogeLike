@@ -24,6 +24,7 @@ public class PlayerController : MonoBehaviour
     private ShootEvent shootEvent;
 
     private Collider2D myCollider;
+    private SpriteRenderer myRenderer;
 
     private float elapsedShootCooldown;
 
@@ -44,6 +45,7 @@ public class PlayerController : MonoBehaviour
         elapsedShootCooldown = ShootCooldown;
 
         myCollider = GetComponent<Collider2D>();
+        myRenderer = GetComponent<SpriteRenderer>();
     }
 
     private void InitializeAttributes()
@@ -116,6 +118,14 @@ public class PlayerController : MonoBehaviour
     {
         UpdateMovingDirection();
         UpdateShootingDirection();
+
+        if (movingDirection.x > 0f)
+        {
+            myRenderer.flipX = true;
+        }else if (movingDirection.x < 0f)
+        {
+            myRenderer.flipX = false;
+        }
     }
 
     private void UpdateShootingDirection()
