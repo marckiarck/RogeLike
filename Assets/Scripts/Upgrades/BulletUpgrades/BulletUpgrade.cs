@@ -5,6 +5,8 @@ using UnityEngine;
 public class BulletUpgrade : MonoBehaviour
 {
     [SerializeField]
+    private AudioClip upgradeSound;
+    [SerializeField]
     private List<GameObject> bulletUpgradesPrefabs;
     private GameObject selectedBulletupgrade;
 
@@ -32,6 +34,7 @@ public class BulletUpgrade : MonoBehaviour
                 bulletVariant.ChangePlayerAttributes();
             }
 
+            GameManager.Instance.PlayGameSound(upgradeSound);
             Destroy(gameObject);
         }
     }

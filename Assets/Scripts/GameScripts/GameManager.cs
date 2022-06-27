@@ -25,7 +25,7 @@ public class GameManager : TemporalSingleton<GameManager>
 
         playerAttributes = playerReferece.GetComponent<AttributeSet>();
 
-        gameAudioSource = gameObject.AddComponent<AudioSource>();
+        gameAudioSource = gameObject.GetComponent<AudioSource>();
 
         score = 0f;
 
